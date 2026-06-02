@@ -1,9 +1,7 @@
 local Cliente = {}
 Cliente.__index = Cliente
 
-function Cliente.novo(nome, cpf, telefone, email)
-
-    local function verificarNome(nome)
+local function verificarNome(nome)
         if nome == nil or nome == "" or #nome < 5 then
             print("Nome invalido!")
         else 
@@ -11,34 +9,36 @@ function Cliente.novo(nome, cpf, telefone, email)
         end 
     end
 
-    local function verificarCpf(cpf)
-        if #cpf == 11 and cpf:match("^%d+$") ~= nil then
-            return cpf
-        else 
-            print("CPF invalido!")
-        end 
-    end
+local function verificarCpf(cpf)
+    if #cpf == 11 and cpf:match("^%d+$") ~= nil then
+        return cpf
+    else 
+        print("CPF invalido!")
+    end 
+end
 
-    local function verificarTelefone(telefone)
-       if telefone:match("^%d+$") ~= nil then
-            if #telefone >= 10 and #telefone <= 11 then
+local function verificarTelefone(telefone)
+    if telefone:match("^%d+$") ~= nil then
+        if #telefone >= 10 and #telefone <= 11 then
                 return telefone
-            else
-                print("Telefone invalido!")
-            end
         else
             print("Telefone invalido!")
         end
+    else
+        print("Telefone invalido!")
     end
+end
 
-    local function verificarEmail(email)
-        if email:find("@") then
-            return email
-        else 
-            print("Email invalido!")
-        end
+local function verificarEmail(email)
+    if email:find("@") then
+        return email
+    else 
+        print("Email invalido!")
     end
+end
 
+function Cliente.novo(nome, cpf, telefone, email)
+    
     local cliente = setmetatable({
         nome = verificarNome(nome),
         cpf = verificarCpf(cpf),

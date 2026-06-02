@@ -1,23 +1,23 @@
 local Banco = {}
 Banco.__index = Banco
 
+local function verificarNome(nome)
+    if #nome >= 4 then
+        return nome
+    else 
+        print("Nome invalido")
+    end 
+end
+
+local function verificarCodigo(codigo)
+    if codigo > 0 then
+        return codigo
+    else
+        print("Codigo invalido")
+    end
+end
+
 function Banco.novo(nome, codigo)
-    local function verificarNome(nome)
-        if #nome >= 4 then
-            return nome
-        else 
-            print("Nome invalido")
-        end 
-    end
-
-    local function verificarCodigo(codigo)
-        if codigo > 0 then
-            return codigo
-        else
-            print("Codigo invalido")
-        end
-    end
-
     local banco = setmetatable({
         nome = verificarNome(nome),
         codigo = verificarCodigo(codigo),
