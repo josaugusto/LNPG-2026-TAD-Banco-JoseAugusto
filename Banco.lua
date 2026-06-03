@@ -89,27 +89,4 @@ function Banco:listarContas()
     end
 end
 
-local banco = Banco.novo("Master", 5)
-
-local conta = {
-    numero = 10,
-    saldo = 10000,
-    titular = "Augusto",
-    banco = nil
-}
-
-if banco then
-    print(banco:adicionarConta(conta))
-    print(banco:quantidadeContas())
-
-    local contaEncontrada = banco:buscarConta(10)
-
-    if contaEncontrada then
-        print(contaEncontrada.numero)
-        print(contaEncontrada.saldo)
-        print(contaEncontrada.titular)
-        print(contaEncontrada.banco)
-    end
-end
-
-return banco
+return Banco

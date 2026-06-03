@@ -93,13 +93,4 @@ function Cliente:alterarEmail(email)
     self.email = emailValido
 end
 
-local cliente = Cliente.novo("Augusto", "05979334483", "82999111111")
-
-if cliente then
-    print(cliente:getNome())
-    print(cliente:getCpf())
-    print(cliente:getTelefone())
-    print(cliente:getEmail())
-end
-
 return Cliente
